@@ -72,7 +72,7 @@
               <a class="text-white text-sm font-medium leading-normal hover:text-primary transition-colors"
                 href="#">Applications</a>
               <a class="text-white text-sm font-medium leading-normal hover:text-primary transition-colors"
-                href="#">Contact</a>
+                href="contact.html">Contact</a>
             </nav>
             <div class="flex items-center justify-end md:hidden">
               <button @click="mobileMenuOpen = !mobileMenuOpen" aria-label="Toggle menu"
@@ -334,17 +334,19 @@
               <nav class="flex flex-wrap justify-center gap-6 text-sm">
                 <a class="text-white/80 hover:text-primary transition-colors" href="technology.html">Technology</a>
                 <a class="text-white/80 hover:text-primary transition-colors" href="#">Applications</a>
-                <a class="text-white/80 hover:text-primary transition-colors" href="#">Contact</a>
+                <a class="text-white/80 hover:text-primary transition-colors" href="contact.html">Contact</a>
                 <a class="text-white/80 hover:text-primary transition-colors" href="#">Privacy Policy</a>
               </nav>
-              <div class="flex gap-4">
-                <a class="text-white/80 hover:text-primary transition-colors" href="#"><span
-                    class="material-symbols-outlined">alternate_email</span></a>
-                <a class="text-white/80 hover:text-primary transition-colors" href="#"><span
-                    class="material-symbols-outlined">call</span></a>
-                <a class="text-white/80 hover:text-primary transition-colors" href="#"><span
-                    class="material-symbols-outlined">map</span></a>
-              </div>
+                            <div class="flex gap-4">
+                                <a class="text-white/80 hover:text-primary transition-colors" href="#"><span
+                                        class="material-symbols-outlined">alternate_email</span></a>
+                                <a class="text-white/80 hover:text-primary transition-colors" href="tel:+1234567890">
+                                    <span class="material-symbols-outlined">call</span>
+                                </a>
+
+                                <a class="text-white/80 hover:text-primary transition-colors" href="contact.html"><span
+                                        class="material-symbols-outlined">map</span></a>
+                            </div>
             </div>
             <p class="text-center text-xs text-white/50 mt-8 font-display">© 2025 Eco Smart Glass. All rights reserved.
             </p>
@@ -383,7 +385,7 @@
           href="#">Applications</a>
         <a @click="mobileMenuOpen = false"
           class="text-white text-lg font-medium leading-normal hover:text-primary transition-colors w-full py-2"
-          href="#">Contact</a>
+          href="contact.html">Contact</a>
       </nav>
     </div>
     <div class="fixed inset-0 bg-black/50 z-50 md:hidden" x-cloak="" x-show="mobileMenuOpen"
