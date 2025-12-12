@@ -86,7 +86,7 @@
             x-bind:class="{ 'pointer-events-none blur-sm': mobileMenuOpen }">
             <div class="relative w-full overflow-hidden">
               <!-- Carousel Track -->
-              <div class="flex transition-transform duration-700 ease-in-out carousel-track">
+              <div class="flex transition-transform duration-700 ease-in-out carousel-track cursor-grab">
                 <!-- Slide 1 -->
                 <div class="min-w-full flex flex-col justify-end p-6 bg-cover bg-center h-[60vh] md:h-[480px]"
                   style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCJ4YhF-yKVjAD7m-c2eMWzFWPUuxAEBpj88O_SVPD_XcWCnXr0oC_5Zgw6FUtKrkQNjQ_kbekBxmXoi-dnnTyom2RByfIx-NDSSZYwVi-eElyaH3mJl9_sw_jw0fmmPDQ5m5k4a0hiBboqiroXrycBPqa7G5UMEoiwFBCRlHar_EfCyrqiMQQgEGuVoJrPog3U4InzeVDTCzq5TyZ8RhWripGrCE5Rwt026vKhoTvkeQsS7f18sAVQzZHDZkT5OMaSL_UjDE_YeXQ');">
@@ -121,13 +121,9 @@
 
               <!-- Controls -->
               <button
-                class="prev absolute top-1/2 left-4 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full">
-                ‹
-              </button>
+                class="prev absolute top-1/2 left-4 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full">‹</button>
               <button
-                class="next absolute top-1/2 right-4 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full">
-                ›
-              </button>
+                class="next absolute top-1/2 right-4 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full">›</button>
 
               <!-- Indicators -->
               <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
@@ -145,28 +141,43 @@
               const indicators = document.querySelectorAll('.indicator');
               let index = 0;
 
+              // Drag / swipe support
+              let startX = 0;
+              let isDragging = false;
+
+              track.addEventListener('mousedown', e => { startX = e.pageX; isDragging = true; track.classList.add('cursor-grabbing'); });
+              track.addEventListener('touchstart', e => { startX = e.touches[0].pageX; isDragging = true; });
+
+              track.addEventListener('mouseup', e => {
+                isDragging = false;
+                track.classList.remove('cursor-grabbing');
+                handleSwipe(e.pageX);
+              });
+              track.addEventListener('touchend', e => { isDragging = false; handleSwipe(e.changedTouches[0].pageX); });
+
+              track.addEventListener('mousemove', e => { if (isDragging) e.preventDefault(); });
+              track.addEventListener('touchmove', e => { if (isDragging) e.preventDefault(); });
+
+              function handleSwipe(endX) {
+                const diff = endX - startX;
+                if (diff > 50) { prevSlide(); }
+                else if (diff < -50) { nextSlide(); }
+              }
+
               function updateCarousel() {
                 track.style.transform = `translateX(-${index * 100}%)`;
                 indicators.forEach((dot, i) => dot.classList.toggle('bg-white', i === index));
               }
 
-              nextBtn.addEventListener('click', () => {
-                index = (index + 1) % slides.length;
-                updateCarousel();
-              });
+              function nextSlide() { index = (index + 1) % slides.length; updateCarousel(); }
+              function prevSlide() { index = (index - 1 + slides.length) % slides.length; updateCarousel(); }
 
-              prevBtn.addEventListener('click', () => {
-                index = (index - 1 + slides.length) % slides.length;
-                updateCarousel();
-              });
+              nextBtn.addEventListener('click', nextSlide);
+              prevBtn.addEventListener('click', prevSlide);
 
-              // Auto-slide every 5s
-              setInterval(() => {
-                index = (index + 1) % slides.length;
-                updateCarousel();
-              }, 5000);
+              // Auto-slide every 2s
+              setInterval(nextSlide, 2000);
             </script>
-
 
 
             <div class="flex flex-col gap-10 px-4 py-10 @container">
