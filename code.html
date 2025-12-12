@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Présentation de l'entreprise (Menu Coulissant Droit Mobile)</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script defer="" src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#2beead",
+            "background-light": "#f6f8f7",
+            "background-dark": "#10221c",
+          },
+          fontFamily: {
+            "display": ["Space Grotesk", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-white">
+  <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden"
+    x-data="{ mobileMenuOpen: false }">
+    <div class="layout-container flex h-full grow flex-col">
+      <div class="px-4 md:px-10 lg:px-20 xl:px-40 flex flex-1 justify-center py-5">
+        <div class="layout-content-container flex flex-col max-w-[1200px] w-full flex-1">
+          <header
+            class="flex items-center justify-between whitespace-nowrap border-b border-solid border-white/20 px-4 sm:px-10 py-3 fixed top-0 left-0 right-0 z-50 bg-background-dark/80 backdrop-blur-sm mx-auto max-w-[1400px]">
+            <div class="flex items-center gap-4 text-white">
+              <div class="size-15">
+                <img src="image/logo.jpeg" alt="Logo" width="48" height="48">
+
+              </div>
+              <h2 class="text-white text-xl font-bold leading-tight tracking-[-0.015em] font-display">Eco Smart Glass
+              </h2>
+            </div>
+            <nav class="hidden md:flex flex-1 justify-center gap-8">
+              <a class="text-white text-sm font-medium leading-normal hover:text-primary transition-colors"
+                href="code.html">Home</a>
+              <a class="text-white text-sm font-medium leading-normal hover:text-primary transition-colors"
+                href="technology.html">Technology</a>
+              <a class="text-white text-sm font-medium leading-normal hover:text-primary transition-colors"
+                href="#">Applications</a>
+              <a class="text-white text-sm font-medium leading-normal hover:text-primary transition-colors"
+                href="#">Contact</a>
+            </nav>
+            <div class="flex items-center justify-end md:hidden">
+              <button @click="mobileMenuOpen = !mobileMenuOpen" aria-label="Toggle menu"
+                class="flex items-center justify-center rounded-lg p-2 text-white hover:bg-white/10 transition-colors">
+                <span class="material-symbols-outlined !text-3xl" x-show="!mobileMenuOpen">menu</span>
+                <span class="material-symbols-outlined !text-3xl" x-cloak="" x-show="mobileMenuOpen">close</span>
+              </button>
+            </div>
+          </header>
+          <main @click="mobileMenuOpen = false" class="flex flex-col gap-10 md:gap-20 pt-20"
+            x-bind:class="{ 'pointer-events-none blur-sm': mobileMenuOpen }">
+            <div class="relative w-full overflow-hidden">
+              <!-- Carousel Track -->
+              <div class="flex transition-transform duration-700 ease-in-out carousel-track">
+                <!-- Slide 1 -->
+                <div class="min-w-full flex flex-col justify-end p-6 bg-cover bg-center h-[60vh] md:h-[480px]"
+                  style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCJ4YhF-yKVjAD7m-c2eMWzFWPUuxAEBpj88O_SVPD_XcWCnXr0oC_5Zgw6FUtKrkQNjQ_kbekBxmXoi-dnnTyom2RByfIx-NDSSZYwVi-eElyaH3mJl9_sw_jw0fmmPDQ5m5k4a0hiBboqiroXrycBPqa7G5UMEoiwFBCRlHar_EfCyrqiMQQgEGuVoJrPog3U4InzeVDTCzq5TyZ8RhWripGrCE5Rwt026vKhoTvkeQsS7f18sAVQzZHDZkT5OMaSL_UjDE_YeXQ');">
+                  <div class="bg-black/40 p-4 md:p-6 rounded-lg max-w-3xl">
+                    <h2 class="text-white text-3xl md:text-4xl font-bold mb-2">Eco Smart Glass – Vitrage intelligent
+                    </h2>
+                    <p class="text-white text-base md:text-lg">Une solution innovante, passive et écologique pour une
+                      régulation intelligente de la température et une réduction significative de l’énergie.</p>
+                  </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="min-w-full flex flex-col justify-end p-6 bg-cover bg-center h-[60vh] md:h-[480px]"
+                  style="background-image: url('image/1K1-Before_After_FR.jpg');">
+                  <div class="bg-black/40 p-4 md:p-6 rounded-lg max-w-3xl">
+                    <h2 class="text-white text-3xl md:text-4xl font-bold mb-2">Bâtiments commerciaux</h2>
+                    <p class="text-white text-base md:text-lg">Améliorez le confort des employés et réduisez les coûts
+                      opérationnels grâce à des solutions de façade intelligentes.</p>
+                  </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="min-w-full flex flex-col justify-end p-6 bg-cover bg-center h-[60vh] md:h-[480px]"
+                  style="background-image: url('image/greenhouse-glass-.jpg');">
+                  <div class="bg-black/40 p-4 md:p-6 rounded-lg max-w-3xl">
+                    <h2 class="text-white text-3xl md:text-4xl font-bold mb-2">Serres</h2>
+                    <p class="text-white text-base md:text-lg">Optimisez la croissance des cultures en contrôlant
+                      passivement l’exposition à la lumière et à la chaleur.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Controls -->
+              <button
+                class="prev absolute top-1/2 left-4 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full">
+                ‹
+              </button>
+              <button
+                class="next absolute top-1/2 right-4 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full">
+                ›
+              </button>
+
+              <!-- Indicators -->
+              <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                <span class="w-3 h-3 bg-white/50 rounded-full indicator active"></span>
+                <span class="w-3 h-3 bg-white/50 rounded-full indicator"></span>
+                <span class="w-3 h-3 bg-white/50 rounded-full indicator"></span>
+              </div>
+            </div>
+
+            <script>
+              const track = document.querySelector('.carousel-track');
+              const slides = Array.from(track.children);
+              const nextBtn = document.querySelector('.next');
+              const prevBtn = document.querySelector('.prev');
+              const indicators = document.querySelectorAll('.indicator');
+              let index = 0;
+
+              function updateCarousel() {
+                track.style.transform = `translateX(-${index * 100}%)`;
+                indicators.forEach((dot, i) => dot.classList.toggle('bg-white', i === index));
+              }
+
+              nextBtn.addEventListener('click', () => {
+                index = (index + 1) % slides.length;
+                updateCarousel();
+              });
+
+              prevBtn.addEventListener('click', () => {
+                index = (index - 1 + slides.length) % slides.length;
+                updateCarousel();
+              });
+
+              // Auto-slide every 5s
+              setInterval(() => {
+                index = (index + 1) % slides.length;
+                updateCarousel();
+              }, 5000);
+            </script>
+
+
+
+            <div class="flex flex-col gap-10 px-4 py-10 @container">
+              <div class="flex flex-col gap-4 text-center items-center">
+                <h2
+                  class="text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px] font-display">
+                  Révolutionner le contrôle de la température
+                </h2>
+                <p class="text-white/80 text-base font-normal leading-normal max-w-[720px] font-display">
+                  Notre technologie de verre intelligent thermosensible s’adapte passivement aux conditions
+                  environnementales, offrant un confort et une efficacité inégalés sans consommation d’énergie active.
+                </p>
+              </div>
+              <div class="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4 p-0">
+                <div
+                  class="flex flex-1 gap-4 rounded-xl border border-white/20 bg-[#19332b]/50 p-6 flex-col items-start text-left">
+                  <div class="text-primary"><span class="material-symbols-outlined !text-4xl">energy_savings_leaf</span>
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <h3 class="text-white text-lg font-bold leading-tight font-display">Solution écologique</h3>
+                    <p class="text-[#92c9b7] text-sm font-normal leading-normal font-display">
+                      Réduisez votre empreinte carbone grâce à un matériau de construction durable qui fonctionne en
+                      harmonie avec la nature.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="flex flex-1 gap-4 rounded-xl border border-white/20 bg-[#19332b]/50 p-6 flex-col items-start text-left">
+                  <div class="text-primary"><span class="material-symbols-outlined !text-4xl">thermostat</span></div>
+                  <div class="flex flex-col gap-1">
+                    <h3 class="text-white text-lg font-bold leading-tight font-display">Régulation passive</h3>
+                    <p class="text-[#92c9b7] text-sm font-normal leading-normal font-display">
+                      Notre verre ajuste automatiquement sa teinte en fonction des températures extérieures, sans
+                      électricité ni réglages manuels nécessaires.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="flex flex-1 gap-4 rounded-xl border border-white/20 bg-[#19332b]/50 p-6 flex-col items-start text-left">
+                  <div class="text-primary"><span
+                      class="material-symbols-outlined !text-4xl">battery_charging_full</span></div>
+                  <div class="flex flex-col gap-1">
+                    <h3 class="text-white text-lg font-bold leading-tight font-display">Économies d’énergie</h3>
+                    <p class="text-[#92c9b7] text-sm font-normal leading-normal font-display">
+                      Réduisez considérablement les coûts de chauffage et de climatisation en maintenant des
+                      températures intérieures stables tout au long de l’année.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col gap-8">
+              <div class="flex flex-col gap-2 px-4">
+                <h2 class="text-white text-3xl font-bold leading-tight tracking-[-0.015em] font-display">Comment ça
+                  fonctionne
+                </h2>
+                <p class="text-white/80 text-base font-normal leading-normal font-display">Découvrez la science derrière
+                  notre technologie de verre intelligent.</p>
+              </div>
+              <div class="p-4">
+                <div class="flex flex-col md:flex-row items-stretch justify-between gap-8 rounded-lg">
+                  <div class="flex flex-col gap-2 flex-[2_2_0px] justify-center">
+                    <h3 class="text-white text-xl font-bold leading-tight font-display">Technologie thermosensible
+                      avancée</h3>
+                    <p class="text-[#92c9b7] text-base font-normal leading-relaxed font-display">
+                      Eco Smart Glass utilizes a proprietary thermosensitive interlayer that reacts to heat. As the
+                      temperature rises, the glass darkens to block solar heat gain, and as it cools, it becomes clearer
+                      to allow passive solar heating. This dynamic response ensures optimal thermal comfort and energy
+                      efficiency automatically.
+                    </p>
+                  </div>
+                  <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex-1"
+                    data-alt="Diagram showing layers of smart glass technology"
+                    style='background-image: url("image/smartglass2_en.png");'>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col gap-8">
+              <div class="flex flex-col gap-2 px-4 text-center items-center">
+                <h2 class="text-white text-3xl font-bold leading-tight tracking-[-0.015em] font-display">Vitrine des
+                  applications</h2>
+                <p class="text-white/80 text-base font-normal leading-normal max-w-2xl font-display">Eco Smart Glass
+                  utilise une couche intermédiaire thermosensible propriétaire qui réagit à la chaleur. Lorsque la
+                  température augmente, le verre s’assombrit pour bloquer la chaleur solaire, et lorsqu’il se refroidit,
+                  il devient plus transparent pour permettre le chauffage solaire passif. Cette réponse dynamique
+                  garantit automatiquement un confort thermique optimal et une efficacité énergétique maximale.</p>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+                <div class="flex flex-col gap-4">
+                  <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                    data-alt="Modern office building with large, clear smart glass windows"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCiuGmEDnT6bAg5KXZAlaydOlevXwmd9cbOsu0XRd2EyHE4DY7Ja-7YwuQy5_0wkzN0c4EB_sV5uyfe-S9VdRnPl5-c1ahgSypLCbuy3O4wTW03jPxNxgQmzMQOQ8xr7cl90Qq7Kp8qn-PNe39UmUP7vKD-bMN_GmgWHz4MENFTPYTGkxyWpC1hhBDLtfXT8tRjMiWm6Lnc4lH2KIwnNNCYJGZNOhp7opsUTJs-g7VOvH0OEcwP5spB3g8HSd6blp7aO8AZ_nzc58I");'>
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <h3 class="text-white text-lg font-bold leading-tight font-display">Bâtiments commerciaux</h3>
+                    <p class="text-[#92c9b7] text-sm font-normal leading-normal font-display">Améliorez le confort des
+                      employés et réduisez les coûts opérationnels grâce à des solutions de façade intelligentes.</p>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-4">
+                  <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                    data-alt="A modern greenhouse with a partially tinted smart glass roof"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuARfK2flUp39Zz_m5eAnWAviBLxYn1I5vHjrkRmhsHLUnPqooNXy8BrKRqIjEaiUD63OIKpWQlymyN44iJWOdrygDt4GWna7wVEnjkN615my8h5YDQ9JoVk1C4LZiLgOEo47VWin3ncvhKobfaT4snjRFny61_umZuu-ih_9TGoHnA_InNaL2OcI2i6A_G9n812b9yykd_VGo5yOY9adkFT9aZlLRi8-4ot0VIBmBNIEJz6AjCaYa53ZuePCaJfhAvqKfVeILRipl4");'>
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <h3 class="text-white text-lg font-bold leading-tight font-display">Serres</h3>
+                    <p class="text-[#92c9b7] text-sm font-normal leading-normal font-display">OOptimisez la croissance
+                      des cultures en contrôlant passivement l’exposition à la lumière et à la chaleur tout au long de
+                      la journée.</p>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-4">
+                  <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                    data-alt="A luxury residential home with floor-to-ceiling smart glass windows"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCE6mZn74EYeFbCScWQaLEA53U-Z8AlWqcamGPIOvDxIr5jbCcldlf25wMJKb6wkHOGDpLrF6vpI-z4woTzWJbIyTvM89E6Nia1h695ojp64ioeCMmFep6dGUGKnwqDHZHsUK6thP0TNtOObAr-Xtw9nr5pRW0T2jQ4ZO_1g8rswvqPQqdgO91CZ-W-t_nevG5AIWCaCTl3lciAnJCQQVycuUpqR7XWkJ-PwSHm_AapB7b_meBOD1kzqqlN5iBRQb6ncsJGj-Seo78");'>
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <h3 class="text-white text-lg font-bold leading-tight font-display">Maisons résidentielles</h3>
+                    <p class="text-[#92c9b7] text-sm font-normal leading-normal font-display">Créez un espace de vie
+                      confortable avec des factures d’énergie réduites et une connexion harmonieuse avec l’extérieur.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4">
+              <div
+                class="bg-[#19332b] rounded-xl flex flex-col items-center justify-center text-center gap-6 p-10 md:p-16">
+                <h2
+                  class="text-white text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em] max-w-2xl font-display">
+                  Prêt à construire un avenir plus vert ?</h2>
+                <p class="text-white/80 text-base font-normal leading-normal max-w-xl font-display">
+                  Découvrez comment Eco Smart Glass peut transformer votre projet. Contactez nos spécialistes dès
+                  aujourd’hui pour une consultation et un devis personnalisés.
+                </p>
+                <button
+                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-background-dark text-base font-bold leading-normal tracking-[0.015em] font-display hover:bg-opacity-90 transition-opacity">
+                  <span class="truncate">Get in Touch</span>
+                </button>
+              </div>
+            </div>
+          </main>
+          <footer class="mt-20 border-t border-white/20 py-10 px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+              <div class="flex items-center gap-4 text-white">
+                <div class="size-15">
+                  <img src="image/logo.jpeg" alt="Logo" width="48" height="48">
+
+                </div>
+                <h2 class="text-white text-xl font-bold leading-tight tracking-[-0.015em] font-display">Eco Smart Glass
+                </h2>
+              </div>
+              <nav class="flex flex-wrap justify-center gap-6 text-sm">
+                <a class="text-white/80 hover:text-primary transition-colors" href="technology.html">Technology</a>
+                <a class="text-white/80 hover:text-primary transition-colors" href="#">Applications</a>
+                <a class="text-white/80 hover:text-primary transition-colors" href="#">Contact</a>
+                <a class="text-white/80 hover:text-primary transition-colors" href="#">Privacy Policy</a>
+              </nav>
+              <div class="flex gap-4">
+                <a class="text-white/80 hover:text-primary transition-colors" href="#"><span
+                    class="material-symbols-outlined">alternate_email</span></a>
+                <a class="text-white/80 hover:text-primary transition-colors" href="#"><span
+                    class="material-symbols-outlined">call</span></a>
+                <a class="text-white/80 hover:text-primary transition-colors" href="#"><span
+                    class="material-symbols-outlined">map</span></a>
+              </div>
+            </div>
+            <p class="text-center text-xs text-white/50 mt-8 font-display">© 2025 Eco Smart Glass. All rights reserved.
+            </p>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <div @click.away="mobileMenuOpen = false"
+      class="fixed inset-y-0 right-0 z-[60] flex w-full max-w-sm flex-col bg-background-dark/95 backdrop-blur-md shadow-lg transition-transform duration-300 ease-in-out md:hidden"
+      x-cloak="" x-show="mobileMenuOpen" x-transition:enter="transform transition ease-in-out duration-300"
+      x-transition:enter-end="translate-x-0" x-transition:enter-start="translate-x-full"
+      x-transition:leave="transform transition ease-in-out duration-300" x-transition:leave-end="translate-x-full"
+      x-transition:leave-start="translate-x-0">
+      <div class="flex items-center justify-between border-b border-white/20 px-4 sm:px-10 py-3">
+        <div class="flex items-center gap-4 text-white">
+          <div class="size-15">
+            <img src="image/logo.jpeg" alt="Logo" width="48" height="48">
+
+          </div>
+          <h2 class="text-white text-xl font-bold leading-tight tracking-[-0.015em] font-display">Eco Smart Glass</h2>
+        </div>
+        <button @click="mobileMenuOpen = false" aria-label="Close menu"
+          class="flex items-center justify-center rounded-lg p-2 text-white hover:bg-white/10 transition-colors">
+          <span class="material-symbols-outlined !text-3xl">close</span>
+        </button>
+      </div>
+      <nav class="flex flex-col items-start gap-6 p-6 text-left">
+        <a @click="mobileMenuOpen = false"
+          class="text-white text-lg font-medium leading-normal hover:text-primary transition-colors w-full py-2"
+          href="code.html">Home</a>
+        <a @click="mobileMenuOpen = false"
+          class="text-white text-lg font-medium leading-normal hover:text-primary transition-colors w-full py-2"
+          href="technology.html">Technology</a>
+        <a @click="mobileMenuOpen = false"
+          class="text-white text-lg font-medium leading-normal hover:text-primary transition-colors w-full py-2"
+          href="#">Applications</a>
+        <a @click="mobileMenuOpen = false"
+          class="text-white text-lg font-medium leading-normal hover:text-primary transition-colors w-full py-2"
+          href="#">Contact</a>
+      </nav>
+    </div>
+    <div class="fixed inset-0 bg-black/50 z-50 md:hidden" x-cloak="" x-show="mobileMenuOpen"
+      x-transition:enter="transition-opacity ease-linear duration-300" x-transition:enter-end="opacity-100"
+      x-transition:enter-start="opacity-0" x-transition:leave="transition-opacity ease-linear duration-300"
+      x-transition:leave-end="opacity-0" x-transition:leave-start="opacity-100"></div>
+  </div>
+</body>
+
+</html>
